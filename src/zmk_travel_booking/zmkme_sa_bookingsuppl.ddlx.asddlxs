@@ -1,0 +1,62 @@
+@Metadata.layer: #PARTNER
+@UI.headerInfo: { 
+  typeName: 'Supplement',
+  typeNamePlural: 'BookingSuplements',
+  title: { 
+     value: 'BookingId'
+  },
+  description: { value: 'SupplementId' }
+}
+annotate entity ZMKC_SA_BOOKINGSUPPL
+    with 
+{
+    @UI.facet: [
+     { 
+        purpose: #STANDARD,
+        type: #COLLECTION,
+        id: 'booksuppl',
+        label: 'Supplement Details',
+        position: 10       
+     },
+     { 
+        purpose: #STANDARD,
+        type: #IDENTIFICATION_REFERENCE,
+        position: 10,   
+        parentId: 'booksuppl',
+        label: 'Supplement Info',
+        targetQualifier: 'supplinfo' 
+     },
+     { 
+        purpose: #STANDARD,
+        type: #FIELDGROUP_REFERENCE,
+        position: 20,   
+        parentId: 'booksuppl',
+        label: 'Pricings',
+        targetQualifier: 'priceinfo'
+     }
+    ]
+    @UI.identification: [ { position: 10 } ]
+    TravelId;
+    @UI.identification: [ { position: 20 } ]
+    BookingId;
+    @UI.fieldGroup: [{ position: 10, qualifier: 'supplinfo' }]
+    @UI.identification: [ { position: 10 } ]
+    @UI.lineItem:[{ position: 10 }]
+    BookingSupplementId;
+    @UI.fieldGroup: [{ position: 10, qualifier: 'supplinfo' }]
+    @UI.identification: [ { position: 20 } ]
+    @UI.lineItem:[{ position: 20 }]
+    SupplementId;
+    @UI.fieldGroup: [{ position: 10, qualifier: 'priceinfo' }]
+    @UI.identification: [ { position: 30 } ]
+    @UI.lineItem:[{ position: 30 }]
+    Price;
+    @UI.fieldGroup: [{ position: 10, qualifier: 'priceinfo' }]
+    @UI.identification: [ { position: 40 } ]
+    @UI.lineItem:[{ position: 40 }]
+    CurrencyCode;
+    
+    @UI.hidden: true
+    LastChangedAt;
+    
+}

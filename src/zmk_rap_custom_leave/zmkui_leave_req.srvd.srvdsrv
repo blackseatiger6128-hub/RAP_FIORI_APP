@@ -1,0 +1,4 @@
+@EndUserText.label: 'Custom Leave Request WS'
+define service ZMKUI_LEAVE_REQ {
+  expose ZMKC_LEAVE_REQ;
+}

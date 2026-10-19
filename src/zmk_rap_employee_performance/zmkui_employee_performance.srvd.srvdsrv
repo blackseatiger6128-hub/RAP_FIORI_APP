@@ -1,0 +1,5 @@
+@EndUserText.label: 'Employee Performances Service'
+define service ZMKUI_EMPLOYEE_PERFORMANCE {
+  expose ZMKC_PERF_DONUT           as DepartmantOverview;
+  expose ZMKC_PERF_MANAGER_MONTHLY as MonthlyManagerDetail;
+}

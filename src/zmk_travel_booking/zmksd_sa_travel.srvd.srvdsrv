@@ -1,0 +1,15 @@
+@EndUserText.label: 'service definition for travel root'
+define service ZMKSD_SA_TRAVEL {
+  expose ZMKC_SA_TRAVEL           as Travel;
+  expose ZMKC_SA_BOOKING          as Booking;
+  expose ZMKC_SA_BOOKINGSUPPL     as BookSuppl;
+  expose /DMO/I_Agency            as Agency;
+  expose /DMO/I_Customer          as Customer;
+  expose /DMO/I_Carrier           as Carrier;
+  expose /DMO/I_Connection        as Connection;
+  expose /DMO/I_Supplement        as Supplement;
+  expose I_Currency               as Currency;
+  expose I_Country                as Country;
+  expose /DMO/I_Overall_Status_VH as TravelStatus;
+  expose /DMO/I_Booking_Status_VH as BookingStatus;
+}

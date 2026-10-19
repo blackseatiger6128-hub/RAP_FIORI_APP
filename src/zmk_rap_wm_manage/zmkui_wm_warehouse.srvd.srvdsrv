@@ -1,0 +1,7 @@
+@EndUserText.label: 'Warehouse Management Service Definition'
+define service ZMKUI_WM_WAREHOUSE {
+  expose ZMKC_WM_WAREHOUSE as Warehouses;
+  expose ZMKC_WM_INVENTORY as WarehouseInventories;
+  expose ZMKC_WM_MATERIALS as Materials;
+  expose ZMKC_WM_COMPANY   as Companies;
+}

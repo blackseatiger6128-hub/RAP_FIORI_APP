@@ -1,0 +1,53 @@
+@Metadata.layer: #CORE
+@UI.headerInfo:{
+   typeName: 'Attachment',
+   typeNamePlural: 'Attachments',
+   title: {
+     type: #STANDARD,
+     value: 'FileName'
+    }
+}
+annotate entity ZMKC_SP_DONATTA with
+{
+//  @UI.facet: [{
+//     id: 'AttachmentDetails',
+//     purpose: #STANDARD,
+//     type: #IDENTIFICATION_REFERENCE,
+//     label: 'Attachment Details',
+//     position: 10
+//     }]
+  @UI.hidden: true
+  AttachmentUuid;
+  @UI.hidden: true
+  DonationUuid;
+  @UI.lineItem: [{ position: 10, label: 'File' }]
+  //@UI.identification: [{ position: 10, label: 'File' }]
+  FileContent;
+
+  @UI.lineItem: [{ position: 20, label: 'File Name' }]
+  //@UI.identification: [{ position: 20, label: 'File Name' }]
+  FileName;
+
+  @UI.lineItem: [{ position: 30, label: 'File Type' }]
+  //@UI.identification: [{ position: 30, label: 'File Type' }]
+  MimeType;
+
+  @UI.lineItem: [{ position: 40, label: 'File Size' }]
+  //@UI.identification: [{ position: 40, label: 'File Size' }]
+  FileSize;
+
+  @UI.lineItem: [{ position: 50, label: 'Uploaded By' }]
+  //@UI.identification: [{ position: 50, label: 'Uploaded By' }]
+  CreatedBy;
+
+  @UI.lineItem: [{ position: 60, label: 'Uploaded On' }]
+  //@UI.identification: [{ position: 60, label: 'Uploaded On' }]
+  CreatedAt;
+
+  @UI.hidden: true
+  LastChangedBy;
+  @UI.hidden: true
+  LastChangedAt;
+  @UI.hidden: true
+  LocalLastChangedAt;
+}

@@ -1,0 +1,107 @@
+@Metadata.layer: #CORE
+@UI.headerInfo:{
+  typeName: 'Donation',
+  typeNamePlural: 'Donations',
+  title: {
+    type: #STANDARD,
+    value: 'DonationId'
+  },
+  description:{
+    type: #STANDARD,
+    value: 'DonorName'
+  }
+}
+annotate entity ZMKC_SP_DONATION
+    with 
+{
+  @UI.facet: [ { id: 'HeaderDetails',
+       purpose: #HEADER,
+       type: #FIELDGROUP_REFERENCE,
+       targetQualifier: 'HeaderDetails',
+       label: 'Donation Details',
+       importance: #HIGH,
+       position: 10 
+     },
+     { id: 'GeneralInfo',
+       purpose: #STANDARD,
+       type: #IDENTIFICATION_REFERENCE,
+       label: 'General Info',
+       position: 10 
+     },
+     { id: 'DonationItems',
+       purpose: #STANDARD,
+       type: #LINEITEM_REFERENCE,
+       targetElement: '_Items',
+       label: 'Donation Items',
+       position: 20 
+     },
+     {
+       id: 'DonationAttachments',
+       purpose: #STANDARD,
+       type: #LINEITEM_REFERENCE,
+       targetElement: '_Attachments',
+       label: 'Donation Attachments',
+       position: 30 
+     },
+     { id: 'PickupInformation',
+       purpose: #STANDARD,
+       type: #FIELDGROUP_REFERENCE,
+       targetQualifier: 'Pickup',
+       label: 'Pickup Information',
+       position: 40 
+     },
+     { id: 'AdministrativeInformation',
+       purpose: #STANDARD,
+       type: #FIELDGROUP_REFERENCE,
+       targetQualifier: 'Administration',
+       label: 'Administrative Informatiuon',
+       position: 50 
+     } ]
+
+@UI.hidden: true
+DonationUuid;
+
+@UI.lineItem: [{ position: 10, label: 'Donation ID', importance: #HIGH }]
+@UI.identification: [{ position:10, label: 'Donation ID' }, 
+                     { position: 50, type: #FOR_ACTION, dataAction: 'ReserveDonation', label: 'Reserve Donation'  },
+                     { position: 60, type: #FOR_ACTION, dataAction: 'MarkAsCollected', label: 'Mark As Collected'  },
+                     { position: 70, type: #FOR_ACTION, dataAction: 'MarkAsDelivered', label: 'Mark As Delivered'  },
+                     { position: 80, type: #FOR_ACTION, dataAction: 'CancelDonation', label: 'Cancel Donation'  }] 
+@UI.fieldGroup: [{ qualifier: 'HeaderDetails', position: 10, label: 'Donation ID' }]
+DonationId;
+
+@UI.lineItem: [{ position: 20, label: 'Donor Name', importance: #HIGH }]
+@UI.identification: [{ position: 20, label: 'Donor Name' }]
+DonorName;
+
+@UI.identification: [{ position: 30, label: 'Donor Email' }] 
+DonorEmail;
+
+@UI.fieldGroup: [{ qualifier: 'Pickup', position: 10 }]
+PickupAddress; 
+
+@UI.fieldGroup: [{ qualifier: 'Pickup', position: 20 }] 
+PickupCity;
+
+@UI.lineItem: [{ position: 30, label: 'Status', importance: #HIGH }] 
+@UI.identification: [{ position: 40, label: 'Status' }]
+Status;
+
+@UI.identification: [{ position: 50, label: 'Cancellatin Reason' }] 
+CancellationReason;
+
+@UI.fieldGroup: [ { qualifier: 'Administration', position: 10 }] 
+CreatedBy; 
+
+@UI.fieldGroup:[ { qualifier: 'Administration', position: 20 }] 
+CreatedAt; 
+
+@UI.fieldGroup: [ { qualifier: 'Administration', position: 30 } ] 
+LastChangedBy; 
+
+@UI.fieldGroup: [ { qualifier: 'Adminsitration', position: 40 } ] 
+LastChangedAt; 
+
+@UI.hidden: true 
+LocalLastChangedAt;
+}

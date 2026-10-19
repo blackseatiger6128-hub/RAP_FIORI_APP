@@ -1,0 +1,6 @@
+@EndUserText.label: 'unmanaged travel app'
+define service ZMKSD_SA_TRAVEL_U {
+  expose ZMKI_SA_U_TRAVEL   as Travel;
+  expose ZMKI_SA_U_CUSTOMER as Customer;
+  expose ZMKI_SA_U_AGENCY   as Agency;
+}

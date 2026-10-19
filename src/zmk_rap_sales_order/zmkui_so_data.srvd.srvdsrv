@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for sales order'
+define service ZMKUI_SO_DATA {
+  expose ZMKC_SA_SALES;
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'service definition for donation'
+define service ZMKSD_SP_DONATION {
+  expose ZMKC_SP_DONATION      as Donations;
+  expose ZMKC_SP_DONATION_ITEM as DonationItems;
+  expose ZMKC_SP_DONATTA       as DonationAttachments;
+}

@@ -1,0 +1,5 @@
+@EndUserText.label: 'user details ui'
+define service ZUI_2123_USER {
+  expose ZC_2123_USER;
+  expose ZC_2123_USER_DEV;
+}

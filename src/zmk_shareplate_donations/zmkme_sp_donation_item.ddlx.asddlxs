@@ -1,0 +1,80 @@
+@Metadata.layer: #CORE  
+@UI.headerInfo:{ 
+   typeName: 'Donation Item', 
+   typeNamePlural: 'Donation Items',
+   title: { 
+     value: 'ItemNo'
+  },
+  description: { value: 'FoodDescription' } 
+ } 
+ annotate entity ZMKC_SP_DONATION_ITEM with 
+ { 
+   @UI.facet: [{ 
+           id: 'ItemDetails', 
+           purpose: #HEADER, 
+           type: #FIELDGROUP_REFERENCE, 
+           targetQualifier: 'ItemDetails', 
+           label: 'Item Details', 
+           importance : #HIGH,position: 10 
+           }, 
+           { id: 'FoodCategory', 
+             purpose: #STANDARD, 
+             type: #IDENTIFICATION_REFERENCE, 
+             targetQualifier: 'Food', 
+             label: 'Food Category', 
+             position: 20 
+           }, 
+           { id: 'QuantityInfo', 
+             purpose: #STANDARD, 
+             type: #FIELDGROUP_REFERENCE, 
+             targetQualifier: 'Quantity', 
+             label: 'Quantity Info', 
+             position: 30 
+           }, 
+           { id: 'DateInfo', 
+             purpose: #STANDARD, 
+             type: #FIELDGROUP_REFERENCE, 
+             targetQualifier: 'Date', 
+             label: 'Date Info', 
+             position: 40 
+           }, 
+           { id: 'AdministrativeInformation', 
+             purpose: #STANDARD, 
+             type: #FIELDGROUP_REFERENCE, 
+             targetQualifier: 'Administration', 
+             label: 'Administrative Information',
+             position:50 
+           }]
+   @UI.hidden: true 
+   ItemUuid;  
+   @UI.hidden: true 
+   DonationUuid; 
+   @UI.lineItem: [ { position: 10, label: 'Item No', importance: #HIGH } ] 
+   @UI.identification: [{ position: 10, label: 'Item No' }] 
+   ItemNo; 
+   @UI.fieldGroup: [{ qualifier: 'Food', position: 10 }]
+   @UI.lineItem: [ { position: 20, label: 'Food Category', importance: #HIGH } ]
+   FoodCategory; 
+   @UI.fieldGroup: [{ qualifier: 'Food', position: 20 }]
+   @UI.lineItem: [ { position: 30, label: 'Food Description', importance: #HIGH } ] 
+   FoodDescription; 
+   @UI.fieldGroup: [{ qualifier: 'Quantity', position: 10 }]
+   @UI.lineItem: [ { position: 40, label: 'Quantity', importance: #HIGH } ] 
+   Quantity; 
+   @UI.fieldGroup: [{ qualifier: 'Quantity', position: 20 }]
+   @UI.lineItem: [ { position: 50, label: 'Unit', importance: #HIGH } ] 
+   QuantityUnit;
+   @UI.lineItem: [ { position: 60, label: 'Expiry Date', importance: #HIGH } ] 
+   @UI.fieldGroup: [{ qualifier: 'Date', position: 10 }] 
+   ExpiryDate; 
+   @UI.fieldGroup: [ { qualifier: 'Administration', position: 10 }] 
+   CreatedBy; 
+   @UI.fieldGroup:[{ qualifier: 'Administration', position: 20 }] 
+   CreatedAt; 
+   @UI.fieldGroup: [ { qualifier: 'Administration', position: 30 } ] 
+   LastChangedBy; 
+   @UI.fieldGroup: [ { qualifier: 'Adminsitration', position: 40 } ] 
+   LastChangedAt; 
+   @UI.hidden: true 
+   LocalLastChangedAt; 
+   } 
